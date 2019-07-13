@@ -1,43 +1,29 @@
 <yandex>
     <remote_servers>
-        <ontime_cluster>
+        <bip_ck_cluster>
             <shard>
+                <internal_replication>true</internal_replication>
                 <replica>
-                    <default_database>r0</default_database>
                     <host>ch-server-1</host>
                     <port>9000</port>
                 </replica>
                 <replica>
-                    <default_database>r1</default_database>
-                    <host>ch-server-3</host>
-                    <port>9000</port>
-                </replica>
-            </shard>
-            <shard>
-                <replica>
-                    <default_database>r0</default_database>
-                    <host>ch-server-2</host>
-                    <port>9000</port>
-                </replica>
-                <replica>
-                    <default_database>r1</default_database>
-                    <host>ch-server-1</host>
-                    <port>9000</port>
-                </replica>
-            </shard>
-            <shard>
-                <replica>
-                    <default_database>r0</default_database>
-                    <host>ch-server-3</host>
-                    <port>9000</port>
-                </replica>
-                <replica>
-                    <default_database>r1</default_database>
                     <host>ch-server-2</host>
                     <port>9000</port>
                 </replica>
             </shard>
-        </ontime_cluster>
+            <shard>
+                <internal_replication>true</internal_replication>
+                <replica>
+                    <host>ch-server-3</host>
+                    <port>9000</port>
+                </replica>
+                <replica>
+                    <host>ch-server-4</host>
+                    <port>9000</port>
+                </replica>
+            </shard>
+        </bip_ck_cluster>
     </remote_servers>
     <zookeeper>
         <node>

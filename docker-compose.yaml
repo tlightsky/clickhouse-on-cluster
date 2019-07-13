@@ -8,24 +8,54 @@ services:
       - ./data/1:/var/lib/clickhouse
     ports:
       - 8123:8123
+      - 9000:9000
+    environment:
+      TZ: "Asia/Shanghai"
   ch-server-2:
     image: yandex/clickhouse-server
     volumes:
       - ./config.xml:/etc/clickhouse-server/config.d/local.xml
       - ./macros2.xml:/etc/clickhouse-server/config.d/macros.xml
       - ./data/2:/var/lib/clickhouse
+    ports:
+      - 8124:8123
+      - 9001:9000
+    environment:
+      TZ: "Asia/Shanghai"
   ch-server-3:
     image: yandex/clickhouse-server
     volumes:
       - ./config.xml:/etc/clickhouse-server/config.d/local.xml
       - ./macros3.xml:/etc/clickhouse-server/config.d/macros.xml
       - ./data/3:/var/lib/clickhouse
+    ports:
+      - 8125:8123
+      - 9002:9000
+    environment:
+      TZ: "Asia/Shanghai"
+  ch-server-4:
+    image: yandex/clickhouse-server
+    volumes:
+      - ./config.xml:/etc/clickhouse-server/config.d/local.xml
+      - ./macros4.xml:/etc/clickhouse-server/config.d/macros.xml
+      - ./data/4:/var/lib/clickhouse
+    ports:
+      - 8126:8123
+      - 9003:9000
+    environment:
+      TZ: "Asia/Shanghai"
   ch-client:
     image: yandex/clickhouse-client
     entrypoint:
       - /bin/sleep
     command:
       - infinity
+    environment:
+      TZ: "Asia/Shanghai"
   zookeeper:
     image: zookeeper
-
+    volumes:
+      - ./zk/data:/data
+      - ./zk/datalog:/datalog
+    environment:
+      TZ: "Asia/Shanghai"
