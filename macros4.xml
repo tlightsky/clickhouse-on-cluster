@@ -1,6 +1,7 @@
 <yandex>
     <macros>
-        <r0shard>01</r0shard>
-        <r0replica>01</r0replica>
+        <layer>01</layer>
+        <shard>01</shard>
+        <replica>01</replica>
     </macros>
 </yandex>

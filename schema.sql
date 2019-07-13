@@ -121,8 +121,8 @@ CREATE DATABASE IF NOT EXISTS r0;
  */
 CREATE TABLE IF NOT EXISTS r0.ontime AS default.ontime_schema
 ENGINE = ReplicatedMergeTree(
-    '/clickhouse/clusters/ontime_cluster/tables/{r0shard}/ontime',
-    '{r0replica}',
+    '/clickhouse/clusters/ontime_cluster/tables/{shard}/ontime',
+    '{replica}',
     FlightDate,
     (Year, FlightDate),
     8192
@@ -135,7 +135,7 @@ CREATE DATABASE IF NOT EXISTS r1;
  */
 CREATE TABLE IF NOT EXISTS r1.ontime AS default.ontime_schema
 ENGINE = ReplicatedMergeTree(
-    '/clickhouse/clusters/ontime_cluster/tables/{r0shard}/ontime',
+    '/clickhouse/clusters/ontime_cluster/tables/{shard}/ontime',
     '{r1replica}',
     FlightDate,
     (Year, FlightDate),
